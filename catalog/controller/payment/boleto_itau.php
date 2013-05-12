@@ -73,7 +73,7 @@ if($order_info){
 //############################## inicio configuração do boleto #################////
 // DADOS DO BOLETO PARA O SEU CLIENTE
 $dias_de_prazo_para_pagamento = $this->config->get('boleto_itau_dia_prazo_pg');
-$taxa_boleto =$this->config->get('boleto_itau_taxa_boleto');
+$taxa_boleto = (double)$this->config->get('boleto_itau_taxa_boleto');
 $data_venc = date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400));  // Prazo de X dias OU informe data: "13/04/2006";
 $valor_cobrado = $order_info['total']; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
 $valor_cobrado = str_replace(",", ".",$valor_cobrado);
